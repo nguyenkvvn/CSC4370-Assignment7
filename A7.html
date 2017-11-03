@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+    //upon launching the webpage
+      $(document).ready(
+      	//hide the creditcard form and the wiretransfer thing
+        function()
+        {
+        	$('.creditcardForm').hide();
+      		$('.wiretransferForm').hide();
+          //$(".numeric").numeric();
+          $('input[type="radio"]').click(function()
+          {
+            if ($(this).attr('value') == 'CREDIT')
+            {
+              $('.creditcardForm').show();
+              $('.wiretransferForm').hide();
+            }
+            else if ($(this).attr('value') == 'WIRETR')
+            {
+              $('.wiretransferForm').show();
+              $('.creditcardForm').hide();
+            }
+            else
+            {
+              $('.creditcardForm').hide();
+              $('.wiretransferForm').hide();
+            }
+          })
+        }
+      )
+
+    </script>
+  </head>
+
+  <body>
+    <form action="#" method="post" name="form_1" id="form1" class="form_class">
+      <table>
+        <tr><td>Sample Checkout Form</td></tr>
+        <tr>
+          <td>Payment Method</td>
+          <td><input type="radio" name="r_paymentmethod" value="CREDIT">Credit Card</td>
+          <td><input type="radio" name="r_paymentmethod" value="WIRETR">Wire Transfer</td>
+        </tr>
+        <tr>
+          <td><input type="button" name="buy_button" id="buybutton" value="  BUY  " onclick="button_BUY()"/></td>
+      </table>
+      <div class="wiretransferForm">
+        Transfer the amount to: reg. $957.00, to account 0009286322 (in English)
+      </div>
+      <div class="creditcardForm">
+        Card Number: <input type="number" name="cardno">
+        Expiration Date: <input type="number" ame="mo"> / <input type="number" name="yr">
+      </div>
+    </form>
+  </body>
+</html>
